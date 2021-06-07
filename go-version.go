@@ -36,6 +36,7 @@ func NewDownLoader(host string) *DownLoader {
 	return &DownLoader{Host: host}
 }
 
+// GetFeaturedDownload returns the latest version golang download info but with few extra info
 func (d DownLoader) GetFeaturedDownload() ([]GoVersionInfoLite, error) {
 	result := make([]GoVersionInfoLite, 0)
 	hostUrl, _ := urlJoin(d.Host, "dl")
@@ -67,6 +68,7 @@ func (d DownLoader) GetFeaturedDownload() ([]GoVersionInfoLite, error) {
 	return result, nil
 }
 
+// GetAllDownload returns the All version golang download info
 func (d DownLoader) GetAllDownload() ([]GoVersionInfoList, error) {
 	var (
 		result = make([]GoVersionInfoList, 0)
